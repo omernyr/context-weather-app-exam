@@ -9,6 +9,7 @@ body {
   left: 0;
   right: 0;
 }
+
 .App {
   display: flex;
   height: 100vh;
@@ -17,19 +18,54 @@ body {
   align-items: center;
   justify-content: center;
 }
+
 .Box {
-  width: 400px;
-  height: 100px;
+  width: 600px;
+  height: 250px;
   border: 1px solid #e31ab2;
   border-radius: 15px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  overflow: hidden;
 }
+
 .Header {
+  display: flex;
+  align-items: center;
   width: 100%;
-  height: 40px;
-  background-color: cornflowerblue;
-  
+  height: 80px;
+  background-color: rgb(158, 187, 240);
+}
+.Weather {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  background-color: rgb(187, 206, 242);
+}
+.daily-weather-box {
+  margin: 5px 10px;
+  border:1px solid #f12ab3;
+  height: 110px;
+  width: 80px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.weather-days {
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  font-weight: 600;
+  font-size: 17px;
+  letter-spacing: 1px;
+  color: #f8f8f8;
+}
+.weather-icon  {
+  font-size: 40px;
+}
+.weather-deg {
+  color: #f8f8f8;
 }
