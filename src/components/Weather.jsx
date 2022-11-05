@@ -1,19 +1,22 @@
+import React from "react";
 import { useCountry } from "../context/CountryContext";
 
 const Weather = () => {
 
-    const { cityDesc, setCityDesc, searchCity } = useCountry();
+    const { cityDesc, setCityDesc, searchCity, submitVisible } = useCountry();
 
-    const myApiKey = 'c638a0809d1431a1185a33c20bb50304';
+    const myApiKey2 = 'cd103e9bb5bb41dc840b6d7c45491b8d';
 
-    searchCity && fetch(`https://api.openweathermap.org/data/2.5/weather?q=${searchCity}&appid=${myApiKey}`)
+    const url = `https://api.weatherbit.io/v2.0/forecast/daily?city=${searchCity}&key=${myApiKey2}`
+
+    submitVisible && fetch(`${url}`)
         .then((resp) => resp.json())
         .then((data) => {
             console.log(data);
-            setCityDesc({
-                name: data.name,
-                temp: data.main.temp - 273.15
-            })
+            // setCityDesc({
+            //     name: data.name,
+            //     temp: data.main.temp - 273.15
+            // })
         })
 
     return (

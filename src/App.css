@@ -20,7 +20,7 @@ body {
 }
 
 .Box {
-  width: 600px;
+  max-width: 600px;
   height: 250px;
   border: 1px solid #e31ab2;
   border-radius: 15px;
@@ -29,6 +29,8 @@ body {
   align-items: center;
   justify-content: center;
   overflow: hidden;
+  margin-top: 15%;
+  margin-left: 27%; 
 }
 
 .Header {
