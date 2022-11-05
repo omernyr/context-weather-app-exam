@@ -1,12 +1,9 @@
-import { useState } from "react"
+import { useCountry } from "../context/CountryContext";
 
-const Weather = ({ searchCity, setSearchCity }) => {
+const Weather = () => {
 
-    const [cityName, setCityName] = useState("turkey");
-    const [cityDesc, setCityDesc] = useState({
-        name: '',
-        temp: 0,
-    })
+    const { cityDesc, setCityDesc, searchCity } = useCountry();
+
     const myApiKey = 'c638a0809d1431a1185a33c20bb50304';
 
     searchCity && fetch(`https://api.openweathermap.org/data/2.5/weather?q=${searchCity}&appid=${myApiKey}`)

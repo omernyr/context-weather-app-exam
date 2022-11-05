@@ -1,11 +1,12 @@
 import './App.css';
 import Container from './components/Container';
+import { CountryProvider } from './context/CountryContext';
 
 function App() {
   return (
-    <div className="App">
+    <CountryProvider>
       <Container />
-    </div>
+    </CountryProvider>
   );
 }
 

@@ -1,24 +1,29 @@
 import { useEffect } from "react";
+import { useCountry } from "../context/CountryContext";
 
-const Header = ({ searchCity, setSearchCity }) => {
+const Header = () => {
 
-    const countrys = fetch("https://restcountries.com/v3.1/all").then((resp) => resp.json()).then((data) => console.log(data))
+    const { countrys, setCountrys, searchCity, setSearchCity } = useCountry();
 
     useEffect(() => {
-        console.log("Countries",countrys);
-    },[countrys])
-    
+
+        fetch("https://restcountries.com/v3.1/all").then((resp) => resp.json()).then((data) => setCountrys(data))
+
+    }, [])
+
+    console.log("Countries", countrys);
+
     return (
         <div className="Header">
             <form>
-                <input
+                {/* <input
                     value={searchCity}
                     onChange={(e) => setSearchCity(e.target.value)}
-                    placeholder="Please a country name..." />
+                    placeholder="Please a country name..." /> */}
                 <select>
-                    
-                    <option value="turkey">turkey</option>
+                    {countrys.map((country) => <option onChange={(e) => setSearchCity(e.target.value)} className="country-name" key={countrys.id} value={country.name.official}>{country.name.official}</option>)}
                 </select>
+
                 <button
                     type="submit">
                     Submit
