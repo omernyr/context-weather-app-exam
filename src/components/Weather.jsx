@@ -5,27 +5,19 @@ const Weather = () => {
 
     const { cityDesc, setCityDesc, searchCity, submitVisible, dailyForecast, setDailyForecast } = useCountry();
 
-    const myApiKey2 = 'cd103e9bb5bb41dc840b6d7c45491b8d';
+    const myApiKey1 = 'ba857cd3147143bcb90112148220511';
+    const myApiKey2 = 'c638a0809d1431a1185a33c20bb50304';
 
-    const url = `https://api.weatherbit.io/v2.0/forecast/daily?city=${searchCity}&key=${myApiKey2}`
+    const url1 = `https://api.weatherbit.io/v2.0/forecast/daily?city=${searchCity}&key=${myApiKey1}`
+    const url2 = `https://api.openweathermap.org/data/3.0/onecall?lat=33.44&lon=-94.04&exclude=daily&appid=${myApiKey2}`
 
-    submitVisible && axios.get(`${url}`)
-        .then((item) => {
-            item.data.data.map((day) =>
-                console.log(day)
-                // setCityDesc([...cityDesc, { name: searchCity, datetime: day.datetime, temp: day.temp, icon: day.weather.icon }])
-            )
-            // setDailyForecast([...dailyForecast, item.data])
-        })
-
-    // useEffect(() => {
-    //     console.log(cityDesc);
-    // }, [cityDesc])
+    submitVisible && fetch(`${url1}`)
+        .then((resp) => resp.json())
+        .then((item) => console.log(item))
 
     return (
         <div className='Weather'>
             <div className='daily-weather-box'>
-
                 <span className='weather-days'>{cityDesc.name}</span>
                 <span className='weather-icon'>☔️</span>
                 <span className='weather-deg'>{cityDesc.temp}°</span>
